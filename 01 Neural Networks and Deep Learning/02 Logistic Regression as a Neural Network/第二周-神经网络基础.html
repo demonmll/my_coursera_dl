@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第二周 神经网络基础</title>
+    <style type="text/css" media="all">
+      body {
+        margin: 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: #777;
+        background-color: white;
+      }
+      .container {
+        width: 700px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .post {
+        font-family: Georgia, "Times New Roman", Times, "SimSun", serif;
+        position: relative;
+        padding: 70px;
+        bottom: 0;
+        overflow-y: auto;
+        font-size: 16px;
+        font-weight: normal;
+        line-height: 25px;
+        color: #515151;
+      }
+
+      .post h1{
+        font-size: 50px;
+        font-weight: 500;
+        line-height: 60px;
+        margin-bottom: 40px;
+        color: inherit;
+      }
+
+      .post p {
+        margin: 0 0 35px 0;
+      }
+
+      .post img {
+        border: 1px solid #D9D9D9;
+      }
+
+      .post a {
+        color: #28A1C5;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="post">
+        <h1 class="title">第二周 神经网络基础</h1>
+        <div class="show-content">
+          <p>Binary classification</p><p>forward propagation step / back propagation step</p><p>logistic regression is an algorithm for binary classification</p><p>in neural network X.shape = [n * m]  y.shape=1 * m</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7348096-0b15b576d7638437.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7348096-443a1d2496d21f74.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><hr><p><br></p><hr><p>LOGISTIC REGRESSION</p><p>in some problems ,we want that the output y is probability(0&lt;y&lt;1)</p><p>sigmoid function</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7348096-f25d595e204ed09e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>the problem turns out to look for better w and b</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7348096-103fa64b3733c589.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p><br></p><hr><hr><p>logistic regression :cost function</p><p>loss function measures the discrepancy between the prediction and the desire output.</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7348096-38157d39626f075c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>we do not use the first function, it will make the optimization problem to a non-convex function</p><p>use the second case-&gt; it make the y^ near the y(0 or 1)</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7348096-fb2a4a7492c8542e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>cost function(measuring all training set) lost function(measuring single train example)</p><hr><hr><p>Gradient Descent</p><p>find w, b that minimize J(w,, b)</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7348096-bc1b594c7dd01c19.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7348096-7e8d1ccc2904a0f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><hr><p><br></p><hr><p>Computation Graph(计算图, forward)-》compute cost function</p><p><b>the computations of neural network are all organized in terms of a forward path (compute the output)and a backward path( compute gradient)</b></p><p>computation graph explain why should we do that</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7348096-66e7001af766a0a8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><hr><p><br></p><hr><p>Derivatives with a Computation Graph(反向传递)</p><p>one step backwards</p><p>chain rule(链式法则)</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7348096-fbb2415a3cd583e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7348096-aa0711c7c709ed64.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><hr><p><br></p><hr><p>2.9 logistic gradient descent</p><p>logistic compute graph</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7348096-7112b251ab1d5493.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7348096-07083c19ba792893.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><hr><p><br></p><hr><p>2.10 Gradient descent on m examples</p><p>one single step on gradient descent</p><p>two weakness: 1) two for loop -&gt; vector</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7348096-71a645ecabc5e2d7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><hr><p><br></p><hr><p>2.11 vectorization</p><p>vectorization is the art of getting rid of explicit for loops</p><p>whenever possible , avoid using explicit for loops</p><p><br></p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7348096-d05b132075dd5662.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7348096-e3a837d2d93ead75.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p><br></p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7348096-5e4e08d74437fa1f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><hr><p><br></p><hr><p>2.11 logistic vectorizition (without using for loops)</p><p>forward progressing(向量化正向传播)</p><p>no for loops</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7348096-8c7b897522450fed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>b will expand to [b,b,b,b,b..] -&gt; "broodcasting"</p><p>implement a vector valued sigmoid function(对向量进行 sigmoid操作)</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7348096-f163531f6a20bde5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><hr><p><br></p><hr><p>2.12 vectorizing logistic regression gradient computation(向量化反向传播)</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7348096-d73172e4e2675fb3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7348096-3128196035eaf645.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7348096-f633f983b1e75d03.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><p>a highly vectorize logistic</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7348096-4fd273056515f503.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><hr><p><br></p><hr><p>2.13 broadcasting(广播)</p><p>a tech make the python and numpy  together calculate</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7348096-e17cc4849c73bc87.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7348096-977d1865264b9344.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7348096-9a0bda96f1d7474a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7348096-ccbfbf4c91def937.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div><hr><p><br></p><hr><p>2.12 notations </p><p>never use np.random.randn(5) it will raise errors</p><p>alway use (1, 5)</p><div class="image-package">
+<img class="uploaded-img" src="http://upload-images.jianshu.io/upload_images/7348096-b11644ea217ed30b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" width="auto" height="auto"><br><div class="image-caption"></div>
+</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
